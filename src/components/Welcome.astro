@@ -10,7 +10,7 @@ const latestVideoId = latestVideoIdRaw.split(/[&?]/)[0];
 let urlInstagram = "https://www.instagram.com/yosoyese__?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 let urlTwitter = "https://x.com/JonaifryRJ?t=MamrNownk8vB49sVRyweNg&s=09";
 let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-688317306/";
-
+let urlTelegram = "https://t.me/+Uf5YsQJOnpo0NGUx";
 ---
 
 <div id="container">
@@ -38,7 +38,7 @@ let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-68831
       </a>
     </div>
 
-    <div class="box link">
+    <div class="box twitter link">
       <h3>Twitter/X</h3>
       <p>Sigueme en Twitter para ver mis tweets y actualizaciones.</p>
       <a class="btn" id="btnTwitter" href={urlTwitter} target="_blank" rel="noopener">
@@ -46,7 +46,7 @@ let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-68831
       </a>
     </div>
 
-    <div class="box link">
+    <div class="box  link">
       <h3>LinkedIn</h3>
       <p>Conectemos en LinkedIn para oportunidades profesionales.</p>
       <a class="btn" id="btnLinkedin" href={urlLinkedIn} target="_blank" rel="noopener">
@@ -54,18 +54,23 @@ let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-68831
       </a>
     </div>
   </section>
-  <section class="containerLinks" id="linksCol">
+  <section class="containerLinks" id="links">
     <div class="box link">
-      <h3>Instagram</h3>
-      <p>Sigueme en Instagram para ver mis fotos y videos.</p>
-      <a class="btn" id="btnInstagram" href={urlInstagram} target="_blank" rel="noopener">
-        <i class="fa fa-instagram" aria-hidden="true"></i>
+      <h3>Canal Telegram</h3>
+      <a class="btn" id="btnInstagram" href={urlTelegram} target="_blank" rel="noopener">
+        <i class="fa fa-telegram" aria-hidden="true"></i>
       </a>
     </div>
   </section>
 
   <!-- pasas el id manual al componente -->
-  <VideoSection latestVideoId={latestVideoId} />
+       <h2><b>Videos mas relevantes</b></h2>
+
+  <div id="linksCol">
+    <VideoSection latestVideoId={latestVideoId} />
+    <VideoSection latestVideoId="TGT3-fsH4Bg" />
+  </div>
+  
 </div>
 
 
@@ -114,7 +119,17 @@ let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-68831
     margin: 40px 20px;
     flex-wrap: wrap; /* permite que bajen en pantallas pequeñas */
   }
-
+  #linksCol{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* baja a una columna en pantallas pequeñas */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 8px;
+  }
   #links .box {
     flex: 1 1 280px; /* crecer/encoger; base 280px */
     max-width: 320px; /* ancho máximo por caja */
@@ -130,7 +145,7 @@ let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-68831
     text-align: center;
   }
 
-  #links .btn {
+  .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -141,12 +156,12 @@ let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-68831
     color: inherit;
   }
 
-  #links .btn:hover {
+  .btn:hover {
     box-shadow: none;
     color: #000;
   }
 
-  #links button.btn:active {
+  .btn:active {
     box-shadow:
       inset 0 0 0 1px rgba(255, 255, 255, 0.12),
       inset 0 2px 0 rgba(0, 0, 0, 0.24);
@@ -199,20 +214,8 @@ let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-68831
     border-radius: 16px;
     border: 1px solid white;
   }
+  
 
-  /* #news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	} */
 
   @media screen and (max-height: 368px) {
     #news {
@@ -249,5 +252,24 @@ let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-68831
     h1 {
       line-height: 1.5;
     }
+  }
+
+  /* contenedor que agrupa las dos VideoSection */
+  #linksCol {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* baja a una columna en pantallas pequeñas */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 8px;
+  }
+
+  /* opcional: en pantallas muy pequeñas poner una columna */
+  @media (max-width: 760px) {
+    #linksCol { gap: 12px; }
+    #linksCol > section#videos { flex: 1 1 100%; max-width: 100%; }
   }
 </style>
