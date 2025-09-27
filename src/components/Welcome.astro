@@ -4,13 +4,14 @@ import background from "../assets/background.svg";
 import VideoSection from "./videosSection.jsx";
 
 // Pon aquí tu string (puede venir con &t=...)
-const latestVideoIdRaw = "6LkgaQCOFA0&t=96s";
+const latestVideoIdRaw = "j88weDhaBjA&t=19s";
 const latestVideoId = latestVideoIdRaw.split(/[&?]/)[0];
 
 let urlInstagram = "https://www.instagram.com/yosoyese__?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 let urlTwitter = "https://x.com/JonaifryRJ?t=MamrNownk8vB49sVRyweNg&s=09";
 let urlLinkedIn = "https://www.linkedin.com/in/jonaifry-rodriguez-de-jesus-688317306/";
 let urlTelegram = "https://t.me/+Uf5YsQJOnpo0NGUx";
+let urlGitHub = "https://www.github.com/JRJ24/";
 ---
 
 <div id="container">
@@ -28,6 +29,11 @@ let urlTelegram = "https://t.me/+Uf5YsQJOnpo0NGUx";
 			</p>
 		</div>
 	</section>
+  
+  <div id="linksCol">
+    <VideoSection latestVideoId={latestVideoId} />
+    <VideoSection latestVideoId="rVfvSas9ziQ" />
+  </div>
 
   <section class="containerLinks" id="links">
     <div class="box link">
@@ -54,6 +60,7 @@ let urlTelegram = "https://t.me/+Uf5YsQJOnpo0NGUx";
       </a>
     </div>
   </section>
+
   <section class="containerLinks" id="links">
     <div class="box link">
       <h3>Canal Telegram</h3>
@@ -61,16 +68,14 @@ let urlTelegram = "https://t.me/+Uf5YsQJOnpo0NGUx";
         <i class="fa fa-telegram" aria-hidden="true"></i>
       </a>
     </div>
+    <div class="box link">
+      <h3>GitHub Repositorio</h3>
+      <a class="btn" id="btnGitHub" href={urlGitHub} target="_blank" rel="noopener">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
+    </div>
   </section>
 
-  <!-- pasas el id manual al componente -->
-       <h2><b>Videos mas relevantes</b></h2>
-
-  <div id="linksCol">
-    <VideoSection latestVideoId={latestVideoId} />
-    <VideoSection latestVideoId="TGT3-fsH4Bg" />
-  </div>
-  
 </div>
 
 
